@@ -9,6 +9,7 @@ class BottomBar extends StatefulWidget {
 class _BottomBar extends State<BottomBar> {
   int activeIndex = 0;
 
+
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar( // 底部导航
@@ -29,6 +30,7 @@ class _BottomBar extends State<BottomBar> {
   void jumpTap(int index) {
     setState(() {
       activeIndex = index;
+      // widget.editParenetText(_cont)
     });
   }
 }
