@@ -26,10 +26,17 @@ class AppHome extends StatefulWidget {
 }
 
 class _AppHome extends State<AppHome> {
-  PageController _controller = PageController(
-    initialPage: 1,
-  );
   int activeIndex = 0;
+  List<Widget> pagelist = List();
+  @override
+  void initState(){
+    pagelist
+      ..add(Home())
+      ..add(Order())
+      ..add(Mine());
+    super.initState();
+  }
+
   final appBarTitles = ['首页', '订单', '我的'];
 
   @override
@@ -39,14 +46,7 @@ class _AppHome extends State<AppHome> {
       appBar: new AppBar(
         title: new Text(appBarTitles[activeIndex]),
       ),
-      body: PageView(
-        controller: _controller,
-        children: <Widget>[
-          Home(),
-          Mine(),
-          Order()
-        ]
-      ),
+      body: pagelist[activeIndex],
       bottomNavigationBar: BottomNavigationBar( // 底部导航
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Image(image: AssetImage( "assets/images/shouye"+ (activeIndex==0? "_active": "")+".png"), width: 20), title: Text('首页')),
@@ -63,7 +63,6 @@ class _AppHome extends State<AppHome> {
 
   //跳转路由
   void jumpTap(int index) {
-    print(_controller.initialPage);
     setState(() {
       activeIndex = index;
     });

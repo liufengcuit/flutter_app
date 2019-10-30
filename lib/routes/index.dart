@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/pages/App.dart';
+import 'package:myapp/pages/home/search.dart';
 
 final routes = {
-  "/": (context) => AppHome()
+  "/": (BuildContext context) => AppHome(),
   //如果需要传参，那么在配置的时候加上{arguments}；如果不需要传参，则不用加{arguments}
   // "/search": (context, {arguments}) => Searchpage(arguments: arguments,),
+  "/search": (BuildContext context) => Search()
 };
 
 

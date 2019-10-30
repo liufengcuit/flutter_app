@@ -10,7 +10,7 @@ class _Home extends State {
       child:RaisedButton(
         child: Text("跳转其他页面"),
         onPressed: () {
-          Navigator.pushNamed(context, "/mine");
+          Navigator.pushNamed(context, "/search");
         },
       )
     );
